@@ -1,4 +1,4 @@
-const url = 'https://penta-brood-server.vercel.app/products/';
+const url = 'https://penta-brood-server.vercel.app/products';
 
 // Sample product template
 const productTemplate = ({ name, price, ImgSrc }) => `
