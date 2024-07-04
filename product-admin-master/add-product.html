@@ -120,7 +120,6 @@
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form class="tm-edit-product-form">
                   <div class="form-group mb-3">
                     <label
                       for="name"
@@ -211,11 +210,24 @@
                     onclick="document.getElementById('fileInput').click();"
                   />
                 </div>
+                <div class="form-group mb-3">
+                  <label
+                    for="imageSrc"
+                    >Image source
+                  </label>
+                  <input
+                    id="imageSrc"
+                    name="imageSrc"
+                    type="text"
+                    class="form-control validate"
+                    required
+                    value="2"
+                  />
+                </div>
               </div>
               <div class="col-12">
                 <button onclick="checkForInputs()" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
               </div>
-            </form>
             </div>
           </div>
         </div>

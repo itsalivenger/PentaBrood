@@ -7,7 +7,7 @@ function checkForInputs() {
     const description = document.getElementById('description').value || 2;
     const price = document.getElementById('price').value || 2;
     const quantity = document.getElementById('quantity').value || 2;
-    const image = 'imageSrc' || 2;
+    const image = document.getElementById('imageSrc').value;
     const category = document.getElementById('category').value || 2;
     const timer = 0
 
