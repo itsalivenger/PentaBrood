@@ -4,15 +4,15 @@ const url = 'https://penta-brood-server.vercel.app/products';
 
 function checkForInputs() {
     const name = document.getElementById('name').value || 2;
-    const description = document.getElementById('description').value || 2;
+    const desc = document.getElementById('description').value || 2;
     const price = document.getElementById('price').value || 2;
-    const quantity = document.getElementById('quantity').value || 2;
-    const image = document.getElementById('imageSrc').value;
+    const quantityInStock = document.getElementById('quantity').value || 2;
+    const imageSrc = document.getElementById('imageSrc').value;
     const category = document.getElementById('category').value || 2;
     const timer = 0
 
     if (name && description && price && quantity && category) {
-        const product = { name, description, price, quantity, image, category }
+        const product = { name, desc, price, quantityInStock, imageSrc, category }
         addProduct(product)
     }else{
         timer++;

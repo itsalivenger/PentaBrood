@@ -3,7 +3,7 @@ const Product = {
     name: 'tshirt',
     price: 40,
     qty: 1,
-    imgSrc: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    imageSrc: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     desc: 'hada tshirt',
     category: 'tshirt'
 };
@@ -62,10 +62,10 @@ function setInStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
-function setItemInStrForHTML({ id, imgSrc, name, price, qty }) {
+function setItemInStrForHTML({ id, imageSrc, name, price, qty }) {
     return `<tr>
                 <td id='spons' class="product-thumbnail">
-                  <img src=${imgSrc} alt="Image" class="img-fluid ProdImg">
+                  <img src=${imageSrc} alt="Image" class="img-fluid ProdImg">
                 </td>
                 <td class="product-name">
                   <h2 class="h5 text-black ProdTitle">${name}</h2>
