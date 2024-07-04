@@ -1,4 +1,6 @@
-const url = 'http://localhost:3000/products';
+// const url = 'http://localhost:3000/products';
+const url = 'https://penta-brood-server.vercel.app/products';
+
 
 function checkForInputs() {
     const name = document.getElementById('name').value || 2;
