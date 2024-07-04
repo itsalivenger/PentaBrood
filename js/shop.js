@@ -12,6 +12,7 @@ const productTemplate = ({_id, name, price, imageSrc }) => `
   </div>`;
 
 window.onload = async () => {
+  console.log('object');
   const {txt, products} = await fetchProducts();
   console.log(products);
 
