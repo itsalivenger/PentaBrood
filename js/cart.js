@@ -9,6 +9,7 @@ const Product = {
 };
 
 window.onload = () => {
+    updateTotals();
     updateCart();
 };
 
