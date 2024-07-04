@@ -83,6 +83,6 @@ function setItemInStrForHTML({ id, imageSrc, name, price, qty }) {
                   </div>
                 </td>
                 <td class="ProdTotal">${price * qty} DH</td>
-                <td><a onclick='removeItemFromCart(${id})' href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+                <td><a onclick='removeItemFromCart(${id})' class="btn btn-primary height-auto btn-sm">X</a></td>
               </tr>`;
 }

@@ -6,13 +6,13 @@ function checkForInputs() {
     const name = document.getElementById('name').value || 2;
     const desc = document.getElementById('description').value || 2;
     const price = document.getElementById('price').value || 2;
-    const quantityInStock = document.getElementById('quantity').value || 2;
+    const sizes = document.getElementById('quantity').value || 2;
     const imageSrc = document.getElementById('imageSrc').value;
     const category = document.getElementById('category').value || 2;
     const timer = 0
 
     if (name && description && price && quantity && category) {
-        const product = { name, desc, price, quantityInStock, imageSrc, category }
+        const product = { name, desc, price, sizes, imageSrc, category }
         addProduct(product)
     }else{
         timer++;
