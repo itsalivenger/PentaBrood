@@ -84,6 +84,7 @@ function getProduct(id) {
 
   function setSize(size) {
     console.log('updated Size', size);
+    addToCartBtn.classList.remove('disabled');
     currentProduct.size = size;
   }
   
