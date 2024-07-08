@@ -1,6 +1,17 @@
 // const url = 'http://localhost:3000/products';
 const url = 'https://penta-brood-server.vercel.app/products';
-
+const addToCartBtn = document.querySelector('#addToCartBtn');
+let btnToggle = true;
+const Product = {
+  id: 1,
+  name: 'tshirt',
+  price: 40,
+  qty: 1,
+  imageSrc: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  desc: 'hada tshirt',
+  category: 'tshirt',
+  size: '',
+};
 let currentProduct = {};
 
 addEventListener('DOMContentLoaded', async () => {
@@ -12,11 +23,22 @@ addEventListener('DOMContentLoaded', async () => {
     setProductForPreview(product);
 })
 
-function addToCart(btn) {
+addToCartBtn.addEventListener('click', (e)=>{
+  if(addToCartBtn.disabled){
+    e.preventDefault();
+    if (addToCart()) {
+      // Manually trigger the Bootstrap modal
+      const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
+      modal.show();
+    }
+  }
+});
+
+
+function addToCart() {
     const cart = getFromStorage('cart') || [];
     const qty = parseInt(document.getElementById('qty').value);
-    btn.preventDefault();
-    
+    currentProduct = Product;
     if (qty > 0 && currentProduct.size) {
         const existingProductIndex = cart.findIndex(item => item._id === currentProduct._id);
       
@@ -29,10 +51,10 @@ function addToCart(btn) {
       }
       
       setInStorage('cart', cart);
-      btn.click()
-      
+      return true
     } else {
       alert('Please select a size and a quantity greater than zero.');
+      return false
     }
   }
   
@@ -57,6 +79,8 @@ function getProduct(id) {
     currentProduct.qty = newQty;
     qtyHtml.value = newQty <= 0 ? 1 : newQty;
   }
+
+
 
   function setSize(size) {
     console.log('updated Size', size);
