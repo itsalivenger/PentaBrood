@@ -1,5 +1,5 @@
-// const url = 'http://localhost:3000/products/shop';
-const url = 'https://penta-brood-server.vercel.app/products/shop';
+const url = 'http://localhost:3000/products/shop';
+// const url = 'https://penta-brood-server.vercel.app/products/shop';
 
 // Sample product template
 const productTemplate = ({_id, name, price, imageSrc }) => `
@@ -11,17 +11,19 @@ const productTemplate = ({_id, name, price, imageSrc }) => `
     <strong class="item-price">${price} DH</strong>
   </div>`;
 
-window.onload = async () => {
-  console.log('object');
-  const {txt, products} = await fetchProducts();
-  console.log(products);
-
-  const shopItemsContainer = document.querySelector("#productsContainer");
-  products.forEach(product => {
-    shopItemsContainer.innerHTML += productTemplate(product);
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const {txt, products} = await fetchProducts();
+  
+      const shopItemsContainer = document.querySelector("#productsContainer");
+      products.forEach(product => {
+        shopItemsContainer.innerHTML += productTemplate(product);
+      });
+    } catch (error) {
+      console.error('Error loading products:', error);
+    }
   });
-};
-
+  
 async function fetchProducts() {
   try {
     const response = await fetch(url, {
