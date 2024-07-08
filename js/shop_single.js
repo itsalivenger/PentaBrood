@@ -22,6 +22,8 @@ function addToCart() {
       currentProduct.qty = qty;
   
       if (existingProductIndex >= 0) {
+        let addToCartBtn = document.getElementById('addToCartBtn');
+        addToCartBtn.dataset.target = '#exampleModal';
         cart[existingProductIndex] = currentProduct; // Replace the existing product with the new one
       } else {
         cart.push(currentProduct); // Add the new product to the cart
