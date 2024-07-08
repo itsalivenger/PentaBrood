@@ -8,11 +8,10 @@ const Product = {
     category: 'tshirt'
 };
 
-window.onload = () => {
+addEventListener('DOMContentLoaded', () => {
     updateTotals();
     updateCart();
-};
-
+})
 function updateCart() {
     const cart = getFromStorage('cart') || [Product];
     const ProdListHTML = document.querySelector('.ProdList');
