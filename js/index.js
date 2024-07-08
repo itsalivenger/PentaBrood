@@ -1,6 +1,6 @@
-onload = ()=>{
-    updateCartCount()
-}
+addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
 
 function updateCartCount() {
     const cartCount = document.querySelector('.icon-shopping-bag');
