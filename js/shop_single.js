@@ -12,9 +12,10 @@ addEventListener('DOMContentLoaded', async () => {
     setProductForPreview(product);
 })
 
-function addToCart() {
+function addToCart(btn) {
     const cart = getFromStorage('cart') || [];
     const qty = parseInt(document.getElementById('qty').value);
+    btn.preventDefault();
     
     if (qty > 0 && currentProduct.size) {
         const existingProductIndex = cart.findIndex(item => item._id === currentProduct._id);
@@ -22,14 +23,13 @@ function addToCart() {
       currentProduct.qty = qty;
   
       if (existingProductIndex >= 0) {
-        let addToCartBtn = document.getElementById('addToCartBtn');
-        addToCartBtn.dataset.target = '#exampleModal';
         cart[existingProductIndex] = currentProduct; // Replace the existing product with the new one
       } else {
         cart.push(currentProduct); // Add the new product to the cart
       }
       
       setInStorage('cart', cart);
+      btn.click()
       
     } else {
       alert('Please select a size and a quantity greater than zero.');
