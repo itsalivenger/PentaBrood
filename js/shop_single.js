@@ -68,6 +68,7 @@ function getProduct(id) {
     document.querySelector('#productName').innerText = product.name;
     document.querySelector('#productPrice').innerText = product.price + ' DH';
     document.querySelector('#productDesc').innerText = product.desc;
+    document.querySelector('addToCartBtn').classList.toggle('disabled');
   }
   
   function getFromStorage(key) {
