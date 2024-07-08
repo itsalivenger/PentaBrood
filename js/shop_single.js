@@ -24,7 +24,7 @@ addEventListener('DOMContentLoaded', async () => {
 })
 
 addToCartBtn.addEventListener('click', (e)=>{
-  if(addToCartBtn.disabled){
+  if(!addToCartBtn.disabled){
     e.preventDefault();
     if (addToCart()) {
       // Manually trigger the Bootstrap modal
