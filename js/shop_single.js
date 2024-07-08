@@ -53,7 +53,7 @@ function addToCart() {
       setInStorage('cart', cart);
       return true
     } else {
-      alert('Please select a size and a quantity greater than zero.');
+      alert('Aechirey gha khtar chi size a echirey rah majatch.');
       return false
     }
   }
@@ -93,7 +93,7 @@ function getProduct(id) {
     document.querySelector('#productName').innerText = product.name;
     document.querySelector('#productPrice').innerText = product.price + ' DH';
     document.querySelector('#productDesc').innerText = product.desc;
-    document.querySelector('addToCartBtn').classList.remove('disabled');
+    addToCartBtn.classList.remove('disabled');
   }
   
   function getFromStorage(key) {
