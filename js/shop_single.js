@@ -24,21 +24,14 @@ addEventListener('DOMContentLoaded', async () => {
 })
 
 addToCartBtn.addEventListener('click', (e)=>{
-  if(!addToCartBtn.disabled){
     e.preventDefault();
-    if (addToCart()) {
-      // Manually trigger the Bootstrap modal
-      const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
-      modal.show();
-    }
-  }
+    addToCart();
 });
 
 
 function addToCart() {
     const cart = getFromStorage('cart') || [];
     const qty = parseInt(document.getElementById('qty').value);
-    currentProduct = Product;
     if (qty > 0 && currentProduct.size) {
         const existingProductIndex = cart.findIndex(item => item._id === currentProduct._id);
       
@@ -51,10 +44,8 @@ function addToCart() {
       }
       
       setInStorage('cart', cart);
-      return true
     } else {
       alert('Aechirey gha khtar chi size a echirey rah majatch.');
-      return false
     }
   }
   
@@ -84,7 +75,6 @@ function getProduct(id) {
 
   function setSize(size) {
     console.log('updated Size', size);
-    addToCartBtn.classList.remove('disabled');
     currentProduct.size = size;
   }
   
