@@ -19,6 +19,7 @@ addEventListener('DOMContentLoaded', async () => {
     const id = urlParams.get('id');
     const product = await getProduct(id);
     currentProduct = product;
+    document.querySelector('#option-md').click();
     console.log(product);
     setProductForPreview(product);
 })
