@@ -2,14 +2,15 @@
 const url = 'https://penta-brood-server.vercel.app/products';
 
 let currentProduct = {};
-onload = async () => {
+
+addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     const product = await getProduct(id);
     currentProduct = product;
     console.log(product);
     setProductForPreview(product);
-}
+})
 
 function addToCart() {
     const cart = getFromStorage('cart') || [];
