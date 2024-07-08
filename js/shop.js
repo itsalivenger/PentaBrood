@@ -1,5 +1,5 @@
-const url = 'http://localhost:3000/products/shop';
-// const url = 'https://penta-brood-server.vercel.app/products/shop';
+// const url = 'http://localhost:3000/products/shop';
+const url = 'https://penta-brood-server.vercel.app/products/shop';
 
 // Sample product template
 const productTemplate = ({_id, name, price, imageSrc }) => `
