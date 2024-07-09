@@ -2,16 +2,16 @@
 const url = 'https://penta-brood-server.vercel.app/products';
 const addToCartBtn = document.querySelector('#addToCartBtn');
 let btnToggle = true;
-const Product = {
-  id: 1,
-  name: 'tshirt',
-  price: 40,
-  qty: 1,
-  imageSrc: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  desc: 'hada tshirt',
-  category: 'tshirt',
-  size: '',
-};
+// const Product = {
+//   id: 1,
+//   name: 'tshirt',
+//   price: 40,
+//   qty: 1,
+//   imageSrc: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+//   desc: 'hada tshirt',
+//   category: 'tshirt',
+//   size: '',
+// };
 let currentProduct = {};
 
 addEventListener('DOMContentLoaded', async () => {
@@ -19,9 +19,9 @@ addEventListener('DOMContentLoaded', async () => {
     const id = urlParams.get('id');
     const product = await getProduct(id);
     currentProduct = product;
-    document.querySelector('#option-md').click();
     console.log(product);
     setProductForPreview(product);
+    document.querySelector('#option-md').click();
 })
 
 addToCartBtn.addEventListener('click', (e)=>{
