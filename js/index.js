@@ -3,7 +3,7 @@ addEventListener('DOMContentLoaded', () => {
 });
 
 function updateCartCount() {
-    const cartCount = document.querySelector('.icon-shopping-bag').querySelector('.number');
+    const cartCount = document.querySelector('.icons').querySelector('.number');
     const cart = getFromStorage('cart') || [];
     cartCount.innerHTML = cart.length;
 }

@@ -21,7 +21,7 @@ addEventListener('DOMContentLoaded', async () => {
     currentProduct = product;
     console.log(product);
     setProductForPreview(product);
-    document.querySelector('#option-md').click();
+    document.querySelector('#option-md').click(); // selecting a default size (medium)
 })
 
 addToCartBtn.addEventListener('click', (e)=>{
