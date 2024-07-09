@@ -14,7 +14,7 @@ addEventListener('DOMContentLoaded', () => {
             })
         }).then((res) => res.json()).then(({line_items, session: {url}}) => {
             console.log(line_items, url)
-            location.href = url
+            // location.href = url
         })
     })
 })
