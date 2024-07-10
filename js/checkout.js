@@ -12,8 +12,9 @@ addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({
                 cart: getFromStorage('cart')
             })
-        }).then((res) => res.json()).then(({line_items, session: {url}}) => {
-            console.log(line_items, url)
+        }).then((res) => res.json()).then(({line_items, session}) => {
+            const { url } = session
+            console.log(line_items, url, session)
             location.href = url
         })
     })
