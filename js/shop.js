@@ -95,7 +95,7 @@ function countProductsByCategory() {
 
   result.forEach(({category, number}) => {
     let span = document.querySelector('#' + category + 'Num');
-    span.innerText = `${number}`;
+    span.innerText = `(${number})`;
   });
 
   // calculating the products count (how many products are there)
