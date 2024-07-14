@@ -950,3 +950,7 @@ a {
 
 .height-auto {
   height: auto !important; }
+
+.categories span{
+  cursor: pointer;
+}
