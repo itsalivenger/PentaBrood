@@ -102,7 +102,7 @@ function countProductsByCategory() {
   const productsCount = result.reduce((a, ele) => {
     return a + ele.number;
   }, 0)
-  document.querySelector('#AllNum').innerText = productsCount;
+  document.querySelector('#AllNum').innerText = `(${productsCount})`;
 
   return result;
 }
