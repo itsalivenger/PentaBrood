@@ -21,6 +21,7 @@ const productTemplate = ({_id, name, price, imageSrc }) => `
       console.error('Error loading products:', error);
     }
     
+    loadCategories();
     // filter by category
     const categories = document.querySelectorAll('.categories');
 
@@ -105,6 +106,24 @@ function countProductsByCategory() {
   document.querySelector('#AllNum').innerText = `(${productsCount})`;
 
   return result;
+}
+
+function loadCategories() {
+  const categories = [];
+  gProducts.forEach(product => {
+    let category = product.category;
+
+    // Initialize the category array if it doesn't exist
+    if (!categories.includes(category)) {
+        categories.push(category);
+    }
+  });
+  
+  categories.forEach((category) => {
+    const categoryHTML = document.getElementById('categoriesList');
+    categoryHTML.innerHTML += `<li class="mb-3 categories text-danger" data-value=${category}><span class="d-flex"><span>${category}</span>
+                    <span id=${category + "Num"} class="text-black ml-auto">(0)</span></span></li>`
+  })
 }
 
 
