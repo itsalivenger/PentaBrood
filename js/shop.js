@@ -27,6 +27,7 @@ const productTemplate = ({_id, name, price, imageSrc }) => `
 
     for (let i = 0; i < categories.length; i++) {
       categories[i].addEventListener('click', ()=> sortByCategory(categories[i].dataset.value))
+      categories[i].id = `${categories[i].dataset.value}Btn`;
     }
 
     // filter by price
@@ -40,6 +41,12 @@ const productTemplate = ({_id, name, price, imageSrc }) => `
 
     // set number of items by filter
     countProductsByCategory();
+
+    // filter by urlParam
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const categoryHtmlEle = document.getElementById(`${category}Btn`);
+    if(categoryHtmlEle) categoryHtmlEle.click();
   });
 
 function sortByCategory(category) {
