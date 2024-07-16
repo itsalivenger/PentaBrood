@@ -128,7 +128,7 @@ function loadCategories() {
 
 
 async function fetchProducts() {
-  // try {
+  try {
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -138,8 +138,8 @@ async function fetchProducts() {
     const data = await response.json();
     console.log(data);
     return data;
-  // } catch (error) {
+  } catch (error) {
     console.error('Error fetching products:', error);
     return [];
-  // }
+  }
 }
