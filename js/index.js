@@ -13,20 +13,24 @@ function updateCartCount() {
 }
 
 function listenForSubscribeInput() {
-    const emailInput = document.querySelector('#email_subscribe').value;
     const submitEmailSub = document.querySelector('#submitEmailSub');
 
-    submitEmailSub.addEventListener('click', () => {
+    submitEmailSub.addEventListener('click', (e) => {
+        e.preventDefault()
         // check for email validity
+        const emailInput = document.querySelector('#email_subscribe').value;
         if (isValidEmail(emailInput)) {
             sendEmailForSubscribe(emailInput);
+        }else{
+            // togglePopUp('Email is not valid')
+            alert('Please verify that your email is correct !')
         }
     });
 }
 
-function sendEmailForSubscribe(email) {
-    try{
-        const req = fetch(`${url}`, {
+async function sendEmailForSubscribe(email) {
+    try {
+        const req = await fetch(`${url}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,8 +41,8 @@ function sendEmailForSubscribe(email) {
             })
         }).then(res => res.json());
         console.log(req);
-    }catch(error){
-        console.error('hak akhay l error',error);
+    } catch (error) {
+        console.error('hak akhay l error', error);
     }
 }
 
@@ -53,6 +57,11 @@ function setInStorage(key, value) {
 function isValidEmail(email) {
     // Define the regular expression for a valid email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Check if email is a string and not empty
+    if (typeof email !== 'string' || email.trim() === '') {
+        return false;
+    }
 
     // Test the email against the regular expression
     return emailRegex.test(email);
