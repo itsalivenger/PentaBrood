@@ -1,5 +1,3 @@
-// const url = 'http://localhost:3000/products/shop';
-const url = 'https://penta-brood-server.vercel.app/products/shop';
 let gProducts = []
 
 // Sample product template
@@ -136,7 +134,7 @@ function loadCategories() {
 
 async function fetchProducts() {
   try {
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/products/shop`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
