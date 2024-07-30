@@ -74,15 +74,15 @@ function setItemInStrForHTML({ id, imageSrc, name, price, qty }) {
                 <td>
                   <div class="input-group mb-3" style="max-width: 120px;">
                     <div class="input-group-prepend">
-                      <button onClick='updateQty(-1, ${id})' class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                      <button onClick='updateQty(-1, ${id})' class="btn btn-outline-secondary js-btn-minus" type="button">&minus;</button>
                     </div>
                     <input type="text" class="form-control text-center ProdQty" value=${qty} placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                     <div class="input-group-append">
-                      <button onClick='updateQty(1, ${id})' class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                      <button onClick='updateQty(1, ${id})' class="btn btn-outline-secondary js-btn-plus" type="button">&plus;</button>
                     </div>
                   </div>
                 </td>
                 <td class="ProdTotal">${price * qty} DH</td>
-                <td><a onclick='removeItemFromCart(${id})' class="btn btn-primary height-auto btn-sm">X</a></td>
+                <td><a onclick='removeItemFromCart(${id})' class="btn btn-secondary height-auto btn-sm">X</a></td>
               </tr>`;
 }
