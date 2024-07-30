@@ -1,6 +1,6 @@
-// const url = 'http://localhost:3000';
+const url = 'http://localhost:3000';
 const second = 1000;
-const url = 'https://penta-brood-server.vercel.app';
+// const url = 'https://penta-brood-server.vercel.app';
 
 addEventListener('DOMContentLoaded', () => {
     updateCartCount();
@@ -11,7 +11,7 @@ addEventListener('DOMContentLoaded', () => {
 function getPopularAndRatedProds() {
     fetch(`${url}/products/popularAndRated`).then(res => res.json()).then(({ products: { popular, rated } }) => {
         if (popular.length && rated.length) {
-        setPopularTemplate(popular.slice(0, 6));
+            setPopularTemplate(popular.slice(0, 6));
             setRatedTemplate(rated.slice(6));
         }
     })
@@ -19,16 +19,22 @@ function getPopularAndRatedProds() {
 
 function setRatedTemplate(prods) {
     const ratedContainer = document.getElementById('carouselInHome');
-    if (!(ratedContainer.children[0].className === 'owl-stage-outer')) {
-        setTimeout(() => {
-            setRatedTemplate(prods);
-        }, 2 * second);
-        return;
-    }
-    let i = 0
-    for (const product of prods) {
-        i++;
-        ratedContainer.firstChild.firstChild.innerHTML += ``
+
+    for (let i = 0; i < prods.length; i++) {
+        ratedContainer.innerHTML += `
+            <div class="owl-item active" style="width: 346.667px; margin-right: 20px;"><div class="item">
+                <div class="item-entry">
+                  <a href="#" class="product-item md-height bg-gray d-block">
+                    <img src=${prods[i].imageSrc} alt="Image" class="img-fluid">
+                  </a>
+                  <h2 class="item-title"><a href="#">${prods[i].name}</a></h2>
+                  <strong class="item-price"><del>${prods[i].price} DH</del> ${prods[i].price} DH</strong>
+                  <div class="star-rating">
+                    ${prods[i].ratings ? prods[i].ratings.map(() => `<span class="icon-star text-warning"></span>`).join('') : ''}
+                  </div>
+                </div>
+              </div>
+            </div>`
     }
 }
 
