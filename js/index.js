@@ -17,7 +17,7 @@ function getPopularAndRatedProds() {
                 setRatedTemplate(rated.slice(6));
             }
         }else{
-            console.log('no data');
+            console.log('no data', data);
         }
     })
 }
