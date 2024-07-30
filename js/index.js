@@ -1,6 +1,6 @@
-const url = 'http://localhost:3000';
+// const url = 'http://localhost:3000';
 const second = 1000;
-// const url = 'https://penta-brood-server.vercel.app';
+const url = 'https://penta-brood-server.vercel.app';
 
 addEventListener('DOMContentLoaded', () => {
     updateCartCount();
