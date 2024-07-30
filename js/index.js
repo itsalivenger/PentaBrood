@@ -9,11 +9,12 @@ addEventListener('DOMContentLoaded', () => {
 });
 
 function getPopularAndRatedProds() {
-    fetch(`${url}/products/popularAndRated`).then(res => res.json()).then(({ products: { popular, rated } }) => {
-        if (popular.length && rated.length) {
-            setPopularTemplate(popular.slice(0, 6));
-            setRatedTemplate(rated.slice(6));
-        }
+    fetch(`${url}/products/popularAndRated`).then(res => res.json()).then(data => {
+        console.log(data);
+        // if (popular.length && rated.length) {
+        //     setPopularTemplate(popular.slice(0, 6));
+        //     setRatedTemplate(rated.slice(6));
+        // }
     })
 }
 
