@@ -10,7 +10,7 @@ addEventListener('DOMContentLoaded', () => {
 
 function getPopularAndRatedProds() {
     fetch(`${url}/products/popularAndRated`).then(res => res.json()).then(data => {
-        const { popular, rated } = data;
+        const { products: { popular, rated } } = data;
         if (popular && rated) {
             if (popular.length && rated.length) {
                 setPopularTemplate(popular.slice(0, 6));
